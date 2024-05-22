@@ -1,2 +1,6 @@
-package com.Lexicon.Util;public interface UserInputServace {
+package com.Lexicon.Util;
+
+public interface UserInputService {
+    String getString();
+    int getInt();
 }
