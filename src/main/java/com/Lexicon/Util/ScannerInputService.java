@@ -1,26 +1,28 @@
 package com.Lexicon.Util;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.Scanner;
 
-public class ScannerInputService {
+@Component
+public class ScannerInputService implements UserInputService{
+
     private Scanner scanner;
 
-    public ScannerInputService() {
-        this.scanner = new Scanner(System.in);
-    }
+    @Autowired
     public ScannerInputService(Scanner scanner) {
         this.scanner = scanner;
     }
 
-    public String getNextLine() {
-        System.out.println("Enter a name or an ID. ");
+
+    @Override
+    public String getString() {
         return scanner.nextLine();
     }
 
-    public static void main(String[] args) {
-        ScannerInputService inputService = new ScannerInputService();
-        String input = inputService.getNextLine();
-        System.out.println("You entered: " +input);
+    @Override
+    public int getInt() {
+        return scanner.nextInt();
     }
-
 }

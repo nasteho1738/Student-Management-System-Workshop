@@ -2,8 +2,8 @@ package com.Lexicon.Models;
 
 
 public class Student {
-    int id;
-    String name;
+    private int id;
+    private String name;
 
 
     public Student() {

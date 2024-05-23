@@ -2,6 +2,7 @@ package com.Lexicon;
 
 import com.Lexicon.Config.ComponentScanConfig;
 import com.Lexicon.Data_access.StudentDao;
+import com.Lexicon.Models.Student;
 import com.Lexicon.Service.StudentManagement;
 import com.Lexicon.Service.StudentManagementConsoleImpl;
 import com.Lexicon.Util.UserInputService;
@@ -19,10 +20,9 @@ public class App
                 new AnnotationConfigApplicationContext(ComponentScanConfig.class);
         StudentDao studentDao = context.getBean(StudentDao.class);
         StudentManagement studentManagement = context.getBean(StudentManagementConsoleImpl.class);
-        System.out.println("StudentManagement:" + studentManagement);
+        Student student = studentManagement.create();
+        System.out.println(student.toString());
 
-
-    context.close();
         /*AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(StudentManagementConsoleImpl.class);
         UserInputService userInputService =context.getBean(UserInputService.class);

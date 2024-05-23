@@ -13,7 +13,6 @@ public class StudentManagementConsoleImpl implements StudentManagement {
 private UserInputService userInputService;
 private StudentDao studentDao;
 
-    private int id;
 @Autowired
     public StudentManagementConsoleImpl(UserInputService userInputService, StudentDao studentDao) {
         this.userInputService = userInputService;
@@ -22,12 +21,11 @@ private StudentDao studentDao;
 
     @Override
     public Student create() {
-        Student student = new Student();
         System.out.println("Enter student name: ");
         String name = userInputService.getString();
-        student.setId(id);
-        student.setName(name);
-        return student;
+        System.out.println("Enter student id: ");
+        int id = userInputService.getInt();
+        return new Student(id,name);
     }
 
     @Override
